@@ -1,0 +1,143 @@
+/* ===== Stats Section - Dark Theme ===== */
+.stats-section {
+  padding: 80px 10%;
+  background: transparent;
+}
+
+/* ===== Grid ===== */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ===== Card - Dark Theme ===== */
+.stat-card {
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(16px);
+  padding: 44px 24px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 5px 15px rgba(124, 58, 237, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 10px 25px rgba(124, 58, 237, 0.3);
+  border-color: rgba(124, 58, 237, 0.5);
+  background: rgba(30, 41, 59, 0.9);
+}
+
+/* ===== Icon - Dark Theme ===== */
+.stat-icon {
+  font-size: 44px;
+  color: #a78bfa;
+  margin-bottom: 16px;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 4px 12px rgba(167, 139, 250, 0.4));
+}
+
+.stat-card:hover .stat-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* ===== Number - Dark Theme ===== */
+.stat-number {
+  font-size: 46px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #7c3aed, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(124, 58, 237, 0.3);
+}
+
+/* ===== Label - Dark Theme ===== */
+.stat-label {
+  font-size: 14px;
+  color: #cbd5e1;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+}
+
+/* ===== Large Desktop (1400px+) ===== */
+@media (min-width: 1400px) {
+  .stats-section { padding: 100px 12%; }
+  .stats-container { max-width: 1100px; gap: 40px; }
+  .stat-number { font-size: 52px; }
+  .stat-icon { font-size: 50px; }
+  .stat-label { font-size: 15px; }
+}
+
+/* ===== Tablet Landscape (1024px) ===== */
+@media (max-width: 1024px) {
+  .stats-section { padding: 70px 6%; }
+  .stat-card { padding: 36px 20px; }
+  .stat-number { font-size: 40px; }
+  .stat-icon { font-size: 38px; }
+}
+
+/* ===== Tablet Portrait (768px) ===== */
+@media (max-width: 768px) {
+  .stats-section { padding: 60px 6%; }
+  .stats-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .stat-card { padding: 28px 14px; }
+  .stat-number { font-size: 32px; }
+  .stat-icon { font-size: 32px; margin-bottom: 12px; }
+  .stat-label { font-size: 12px; letter-spacing: 0.5px; }
+}
+
+/* ===== Mobile (480px) ===== */
+@media (max-width: 480px) {
+  .stats-section { padding: 50px 5%; }
+  .stats-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .stat-card {
+    padding: 22px 10px;
+    border-radius: 14px;
+  }
+  .stat-number { font-size: 26px; }
+  .stat-icon { font-size: 26px; margin-bottom: 10px; }
+  .stat-label { font-size: 11px; letter-spacing: 0; }
+}
+
+/* ===== Small Mobile (360px) ===== */
+@media (max-width: 360px) {
+  .stat-number { font-size: 22px; }
+  .stat-icon { font-size: 22px; }
+  .stat-label { font-size: 10px; }
+  .stat-card { padding: 18px 8px; }
+}
