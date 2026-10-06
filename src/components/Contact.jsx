@@ -8,12 +8,10 @@ export const Contact = () => {
 
       {/* LEFT SIDE - CONTACT INFO */}
       <div className="contact-left scroll-effect">
-        <h1 className="contact-title scroll-effect">Let’s Build Something Amazing</h1>
+        <h1 className="contact-title scroll-effect">Let's Build Something Amazing</h1>
 
         <p className="contact-description scroll-effect">
-          Whether you need a full-stack MERN developer, web application architect,
-          or project collaborator — I’m here to help you build scalable,
-          responsive, and high-performance web solutions.
+          Ready to collaborate? Let's build amazing projects together!
         </p>
 
         <div className="contact-items scroll-effect">

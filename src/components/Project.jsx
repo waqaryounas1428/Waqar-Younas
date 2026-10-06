@@ -1,12 +1,4 @@
 import { useState, useEffect } from "react";
-import e1 from "../project/p1/1.png";
-import e2 from "../project/p1/2.png";
-import e3 from "../project/p1/3.png";
-import e4 from "../project/p1/4.png";
-import w1 from "../project/p2/1.png";
-import w2 from "../project/p2/2.png";
-import w3 from "../project/p2/3.png";
-import w4 from "../project/p2/4.png";
 import "./Project.css";
 
 const projects = [

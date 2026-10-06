@@ -1,47 +1,278 @@
-/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+/* ===== ENHANCED RESPONSIVE DESIGN FOUNDATION ===== */
 
-/* Reduce animations on mobile devices and for users who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  
-  .scroll-effect {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-/* Optimize scrollbar for better performance */
-html {
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-}
-
-/* Reduce repaints and reflows */
+/* Mobile First Approach - Base styles for mobile */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Enable hardware acceleration for better performance */
-.scroll-effect,
-.hero-image,
-.about-card,
-.timeline-content,
-.social-icon {
-  transform: translateZ(0);
-  will-change: transform;
+/* ===== ENHANCED SMOOTH SCROLLING ===== */
+html {
+  font-size: 16px; /* Base font size */
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scroll-padding-top: clamp(60px, 8vh, 80px); /* Account for fixed navbar */
 }
 
-/* Optimize animations */
-@media (min-width: 769px) {
-  .scroll-effect {
-    will-change: transform, opacity;
+/* Smooth scroll snap for better section navigation */
+body {
+  scroll-snap-type: y proximity;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Make each major section snap to viewport */
+#home,
+.about,
+.stats-section,
+.expertise,
+.timeline-section,
+.projects,
+.toolkit,
+.contact-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* ===== ENHANCED RESPONSIVE FONT SCALING ===== */
+@media screen and (max-width: 360px) {
+  html { font-size: 13px; }
+}
+
+@media screen and (max-width: 480px) {
+  html { font-size: 14px; }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  html { font-size: 15px; }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  html { font-size: 16px; }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  html { font-size: 17px; }
+}
+
+@media screen and (min-width: 1441px) {
+  html { font-size: 18px; }
+}
+
+/* ===== RESPONSIVE UTILITY CLASSES ===== */
+
+/* Container utilities for consistent spacing */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+}
+
+/* Responsive text utilities - Enhanced */
+.text-responsive-xs { font-size: clamp(0.625rem, 2vw, 0.875rem); }
+.text-responsive-sm { font-size: clamp(0.75rem, 2.5vw, 1rem); }
+.text-responsive-base { font-size: clamp(0.875rem, 3vw, 1.125rem); }
+.text-responsive-lg { font-size: clamp(1rem, 4vw, 1.5rem); }
+.text-responsive-xl { font-size: clamp(1.25rem, 5vw, 2rem); }
+.text-responsive-2xl { font-size: clamp(1.75rem, 6vw, 3rem); }
+.text-responsive-3xl { font-size: clamp(2.5rem, 8vw, 4rem); }
+
+/* Responsive spacing utilities - Enhanced */
+.space-responsive-xs { gap: clamp(0.25rem, 1vw, 0.5rem); }
+.space-responsive-sm { gap: clamp(0.5rem, 2vw, 1rem); }
+.space-responsive-md { gap: clamp(1rem, 3vw, 2rem); }
+.space-responsive-lg { gap: clamp(1.5rem, 4vw, 3rem); }
+.space-responsive-xl { gap: clamp(2rem, 5vw, 4rem); }
+
+/* Responsive padding utilities - Enhanced */
+.padding-responsive-xs { padding: clamp(0.5rem, 2vw, 1rem); }
+.padding-responsive-sm { padding: clamp(1rem, 3vw, 2rem); }
+.padding-responsive-md { padding: clamp(1.5rem, 4vw, 3rem); }
+.padding-responsive-lg { padding: clamp(2rem, 5vw, 4rem); }
+.padding-responsive-xl { padding: clamp(3rem, 6vw, 6rem); }
+
+/* ===== OPTIMIZED SECTION SPACING FOR VIEWPORT FIT ===== */
+
+/* Section spacing utilities - optimized for viewport height */
+.section-spacing {
+  padding: clamp(1.5rem, 4vh, 3rem) clamp(1rem, 5vw, 5rem);
+  min-height: 90vh; /* Ensure sections fit in viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.section-compact {
+  padding: clamp(1rem, 3vh, 2rem) clamp(1rem, 5vw, 4rem);
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ===== ENHANCED RESPONSIVE GRID UTILITIES ===== */
+.grid-responsive-1 { 
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: clamp(0.75rem, 2vw, 1.5rem); 
+  width: 100%;
+}
+
+.grid-responsive-2 { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); 
+  gap: clamp(1rem, 3vw, 2rem); 
+  width: 100%;
+}
+
+.grid-responsive-3 { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); 
+  gap: clamp(0.875rem, 2.5vw, 1.75rem); 
+  width: 100%;
+}
+
+.grid-responsive-4 { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); 
+  gap: clamp(0.75rem, 2vw, 1.5rem); 
+  width: 100%;
+}
+
+/* Enhanced flex utilities */
+.flex-responsive {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 3vw, 2rem);
+  width: 100%;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .flex-responsive {
+    flex-direction: row;
+    align-items: center;
   }
+}
+
+/* ===== RESPONSIVE BREAKPOINT UTILITIES ===== */
+
+/* Hide on mobile */
+.hidden-mobile {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .hidden-mobile {
+    display: none;
+  }
+}
+
+/* Hide on tablet and up */
+.hidden-tablet-up {
+  display: block;
+}
+
+@media screen and (min-width: 769px) {
+  .hidden-tablet-up {
+    display: none;
+  }
+}
+
+/* Hide on desktop */
+.hidden-desktop {
+  display: block;
+}
+
+@media screen and (min-width: 1025px) {
+  .hidden-desktop {
+    display: none;
+  }
+}
+
+/* ===== RESPONSIVE IMAGES ===== */
+.responsive-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: clamp(0.5rem, 2vw, 1rem);
+}
+
+/* ===== RESPONSIVE BUTTONS ===== */
+.btn-responsive {
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  border-radius: clamp(0.5rem, 1.5vw, 0.75rem);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* ===== RESPONSIVE ANIMATIONS - Reduced motion support ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== RESPONSIVE SCROLL BEHAVIOR ===== */
+@media screen and (max-width: 768px) {
+  body {
+    scroll-snap-type: none; /* Disable snap on mobile for better UX */
+  }
+}
+
+/* Show/hide utilities for different screen sizes */
+.show-mobile { display: block; }
+.show-tablet { display: none; }
+.show-desktop { display: none; }
+
+@media screen and (min-width: 768px) {
+  .show-mobile { display: none; }
+  .show-tablet { display: block; }
+}
+
+@media screen and (min-width: 1024px) {
+  .show-tablet { display: none; }
+  .show-desktop { display: block; }
+}
+
+/* Responsive images */
+.img-responsive {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+.img-responsive-rounded {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  border-radius: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+/* Touch target utilities for mobile */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ===== ENHANCED DARK THEME WITH GRADIENT SLIDES ===== */
@@ -63,6 +294,17 @@ body {
   position: relative;
   min-height: 100vh;
   color: #e2e8f0;
+}
+
+/* Account for fixed navbar */
+body {
+  padding-top: 80px; /* Adjust based on navbar height */
+}
+
+@media screen and (max-width: 767px) {
+  body {
+    padding-top: 70px; /* Smaller padding for mobile navbar */
+  }
 }
 
 @keyframes darkSlideShift {
